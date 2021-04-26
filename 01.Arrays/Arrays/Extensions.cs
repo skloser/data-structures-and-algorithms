@@ -18,5 +18,27 @@ namespace Arrays
 
             return array;
         }
+
+        public static string Reverse(this string str)
+        {
+            if (str == null)
+            {
+                return null;
+            }
+
+            if (str.Length == 1)
+            {
+                return str;
+            }
+
+            var newStr = "";
+
+            for (int i = str.Length - 1; i >= 0; i--)
+            {
+                newStr += str[i];
+            }
+
+            return newStr;
+        }
     }
 }
