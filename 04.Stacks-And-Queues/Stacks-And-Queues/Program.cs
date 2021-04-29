@@ -26,7 +26,10 @@ namespace Stacks_And_Queues
             //Console.WriteLine(queue.Dequeue().Value);
 
             var myQueue = new MyQueue();
-            myQueue.Push(5);
+            myQueue.Push(13);
+            myQueue.Push(7);
+            myQueue.Push(12);
+            myQueue.Push(15);
             Console.WriteLine(myQueue.Pop());
         }
     }
@@ -227,17 +230,21 @@ namespace Stacks_And_Queues
         /** Push element x to the back of queue. */
         public void Push(int x)
         {
-            var newStack = new Stack<int>();
+            var tempStack = new Stack<int>();
+
+
             while (stack.Any())
             {
-                newStack.Push(stack.Pop());
+                tempStack.Push(stack.Pop());
             }
-            newStack.Push(x);
 
-            while (newStack.Any())
+            tempStack.Push(x);
+
+            while (tempStack.Any())
             {
-                stack.Push(newStack.Pop());
+                stack.Push(tempStack.Pop());
             }
+
         }
 
         /** Removes the element from in front of queue and returns that element. */
